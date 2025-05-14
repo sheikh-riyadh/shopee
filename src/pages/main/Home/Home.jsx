@@ -1,6 +1,10 @@
 import Advertisement from "../../../components/main/Home/Advertisement";
+import Categories from "../../../components/main/Home/Categories";
 import HomeCard from "../../../components/main/Home/HomeCard";
 import HomeSlider from "../../../components/main/Home/HomeSlider";
+import "swiper/css";
+import "swiper/css/pagination";
+import Mall from "../../../components/main/Home/Mall";
 
 const Home = () => {
   return (
@@ -9,6 +13,8 @@ const Home = () => {
         <HomeSlider />
         <HomeCard />
         <Advertisement />
+        <Categories/>
+        <Mall/>
       </div>
     </div>
   );

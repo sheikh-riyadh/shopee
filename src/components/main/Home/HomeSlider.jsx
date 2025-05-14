@@ -1,6 +1,4 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 import customSliderBullets from "../../../utils/customSliderBullets";
 
@@ -24,7 +22,7 @@ const HomeSlider = () => {
               <SwiperSlide key={banner}>
                 <div className="xl:h-[268px]">
                   <img
-                    className="h-full object-fill rounded-sm"
+                    className="h-full object-fill rounded-sm w-full"
                     src={`src/assets/main/banner_${banner}.jpeg`}
                     alt="banner_image"
                   />

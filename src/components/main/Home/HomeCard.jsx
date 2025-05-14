@@ -9,7 +9,7 @@ const HomeCard = () => {
         "Home Service",
         "Service Center",
       ].map((content) => (
-        <div className="shadow rounded-sm p-5 w-full font-semibold flex flex-col xl:flex-row items-center justify-center gap-5">
+        <div className="shadow rounded-sm p-5 w-full font-semibold flex flex-col xl:flex-row items-center justify-center gap-5 bg-white">
           <div className="h-12 w-12 bg-primary flex flex-col items-center justify-center rounded-full text-white">
             <FaLaptop />
           </div>
