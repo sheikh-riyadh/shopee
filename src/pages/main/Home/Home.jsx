@@ -5,6 +5,7 @@ import HomeSlider from "../../../components/main/Home/HomeSlider";
 import "swiper/css";
 import "swiper/css/pagination";
 import Mall from "../../../components/main/Home/Mall";
+import DailyDiscover from "../../../components/main/Home/DailyDiscover";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
         <Advertisement />
         <Categories/>
         <Mall/>
+        <DailyDiscover/>
       </div>
     </div>
   );
