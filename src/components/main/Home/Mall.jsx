@@ -13,7 +13,7 @@ const Mall = () => {
             <span>Free Shipping</span>
           </div>
         </div>
-        <div className="grid grid-cols-12 gap-5">
+        <div className="xl:grid xl:grid-cols-12 gap-5">
           <div className="col-span-4">
             <Swiper
               autoplay={{
@@ -29,9 +29,9 @@ const Mall = () => {
             >
               {[1, 2, 3, 4].map((banner) => (
                 <SwiperSlide key={banner}>
-                  <div className="xl:h-[275px]">
+                  <div className="xl:h-[275px] w-full">
                     <img
-                      className="h-full object-fill rounded-sm"
+                      className="h-full object-fill rounded-sm w-full"
                       src={`src/assets/main/banner_${banner}.jpeg`}
                       alt="banner_image"
                     />
@@ -41,7 +41,7 @@ const Mall = () => {
             </Swiper>
           </div>
           <div className="col-span-8">
-            <div className="grid grid-cols-4 gap-5">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
               {[...Array(8).keys()].map((mall) => (
                 <div
                   key={mall}

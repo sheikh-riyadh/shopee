@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import Mall from "../../../components/main/Home/Mall";
 import DailyDiscover from "../../../components/main/Home/DailyDiscover";
+import TopProducts from "../../../components/main/Home/TopProducts";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
         <Advertisement />
         <Categories/>
         <Mall/>
+        <TopProducts/>
         <DailyDiscover/>
       </div>
     </div>

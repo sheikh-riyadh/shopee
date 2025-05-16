@@ -1,23 +1,23 @@
 @import "tailwindcss";
 
-
 @layer components {
   .container {
     @apply px-4 sm:px-7 md:max-w-full md:px-[15px] lg:px-[15px] xl:px-[30px] 2xl:max-w-[1372px] 2xl:px-0 sm:max-w-xl mx-auto;
   }
 }
 
-@theme{
-    --color-primary:#ee4d2d;
-    --color-secondary: #ff7337;
-    --color-success:#198754;
-    --color-danger:#dc3545;
-    --color-warning: #ffc107;
-    --color-info: #0dcaf0;
-    --color-white: #fff;
-    --color-black: #222325;
+@theme {
+  --color-primary: #ee4d2d;
+  --color-secondary: #ff7337;
+  --color-success: #198754;
+  --color-danger: #dc3545;
+  --color-warning: #ffc107;
+  --color-info: #0dcaf0;
+  --color-white: #fff;
+  --color-black: #222325;
 }
 
-html, body{
+html,
+body {
   background: #f3f4f8;
 }
