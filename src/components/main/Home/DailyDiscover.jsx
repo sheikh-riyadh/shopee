@@ -4,7 +4,7 @@ const DailyDiscover = () => {
       <div className="text-center p-5 bg-white border-b-4 border-primary uppercase font-medium text-primary">
         <h2>Daily Discover</h2>
       </div>
-      <div className="grid grid-cols-6 gap-3">
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
         {[...Array(12).keys()].map((product) => (
           <div
             key={product}

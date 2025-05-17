@@ -16,11 +16,33 @@ const TopProducts = () => {
             onBeforeInit={(swiper) => {
               swiperRef.current = swiper;
             }}
-            cssMode={true}
             slidesPerView={5}
             spaceBetween={30}
             loop={true}
             modules={[Autoplay]}
+
+            breakpoints={{
+            320: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+            },
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+            },
+            768: {
+              slidesPerView: 5,
+              spaceBetween: 10,
+            },
+            1024: {
+              slidesPerView: 5,
+              spaceBetween: 10,
+            },
+            1280: {
+              slidesPerView: 5,
+              spaceBetween: 10,
+            },
+          }}
           >
             {[...Array(10).keys()].map((product) => (
               <SwiperSlide key={product}>
@@ -44,7 +66,7 @@ const TopProducts = () => {
                       transform: "rotate(-90deg)",
                     }}
                   ></div>
-                  <span className="absolute top-5.5 left-5.5 text-white text-sm">
+                  <span className="absolute top-6 left-6 text-white text-xs">
                     TOP
                   </span>
                 </div>
