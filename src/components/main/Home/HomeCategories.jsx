@@ -1,8 +1,10 @@
 import { useRef } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import { Link } from "react-router";
 import { Swiper, SwiperSlide } from "swiper/react";
+import Button from "../../../common/Button";
 
-const Categories = () => {
+const HomeCategories = () => {
   const categories = [...Array(40).keys()]; // Replace with real category data
 
   // Chunk into groups of 4 (2 rows × 2 columns)
@@ -52,41 +54,44 @@ const Categories = () => {
         >
           {chunked.map((group, index) => (
             <SwiperSlide key={index}>
-              <div className="grid grid-cols-2 gap-2.5">
-                {group.map((category) => (
-                  <div
-                    key={category}
-                    className={`flex flex-col items-center justify-center border border-slate-200 p-2 hover:shadow-lg duration-300 `}
-                  >
-                    <img
-                      src="https://down-my.img.susercontent.com/file/7ea3e07f2e6f57272c6641e4ce3f1632@resize_w320_nl.webp"
-                      alt="category"
-                    />
-                    <h1 className="text-xs text-center">
-                      Mobile Accessories {category + 1}
-                    </h1>
-                  </div>
-                ))}
-              </div>
+              <Link to={"category/mobile"}>
+                <div className="grid grid-cols-2 gap-2.5">
+                  {group.map((category) => (
+                    <div
+                      key={category}
+                      className={`flex flex-col items-center justify-center border border-slate-200 p-2 hover:shadow-lg duration-300 `}
+                    >
+                      <img
+                        src="https://down-my.img.susercontent.com/file/7ea3e07f2e6f57272c6641e4ce3f1632@resize_w320_nl.webp"
+                        alt="category"
+                      />
+                      <h1 className="text-xs text-center">
+                        Mobile Accessories {category + 1}
+                      </h1>
+                    </div>
+                  ))}
+                </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>
         <div className="absolute flex flex-col w-full top-5/12">
           <div className="flex justify-between ">
-            <button
-              className="z-10 w-8 shadow-xl h-8 hover:w-10 hover:h-10 duration-500 flex items-center justify-center rounded-full bg-primary text-white relative -left-9"
-              onClick={() => swiperRef.current.slidePrev()}
-            >
-              <FaAngleLeft className="text-xl" />
-            </button>
-            <button
+            <Button
               className={
-                "z-10 w-8 shadow-xl h-8 hover:w-10 hover:h-10 duration-500 flex items-center justify-center rounded-full bg-primary text-white"
+                "z-10 w-8 shadow-xl h-8 flex items-center justify-center rounded-full relative -left-9"
+              }
+              onClick={() => swiperRef.current.slidePrev()}
+              children={<FaAngleLeft className="text-xl" />}
+            />
+
+            <Button
+              className={
+                "z-10 w-8 shadow-xl h-8 flex items-center justify-center rounded-full"
               }
               onClick={() => swiperRef.current.slideNext()}
-            >
-              <FaAngleRight className="text-xl" />
-            </button>
+              children={<FaAngleRight className="text-xl" />}
+            />
           </div>
         </div>
       </div>
@@ -94,4 +99,4 @@ const Categories = () => {
   );
 };
 
-export default Categories;
+export default HomeCategories;

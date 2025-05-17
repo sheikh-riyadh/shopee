@@ -2,6 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { useRef } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import Button from "../../../common/Button";
 
 const TopProducts = () => {
   const swiperRef = useRef();
@@ -20,29 +21,28 @@ const TopProducts = () => {
             spaceBetween={30}
             loop={true}
             modules={[Autoplay]}
-
             breakpoints={{
-            320: {
-              slidesPerView: 2,
-              spaceBetween: 10,
-            },
-            640: {
-              slidesPerView: 2,
-              spaceBetween: 10,
-            },
-            768: {
-              slidesPerView: 5,
-              spaceBetween: 10,
-            },
-            1024: {
-              slidesPerView: 5,
-              spaceBetween: 10,
-            },
-            1280: {
-              slidesPerView: 5,
-              spaceBetween: 10,
-            },
-          }}
+              320: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+              },
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+              },
+              768: {
+                slidesPerView: 5,
+                spaceBetween: 10,
+              },
+              1024: {
+                slidesPerView: 5,
+                spaceBetween: 10,
+              },
+              1280: {
+                slidesPerView: 5,
+                spaceBetween: 10,
+              },
+            }}
           >
             {[...Array(10).keys()].map((product) => (
               <SwiperSlide key={product}>
@@ -75,20 +75,21 @@ const TopProducts = () => {
           </Swiper>
           <div className="absolute flex flex-col w-full top-5/12">
             <div className="flex justify-between ">
-              <button
-                className="z-10 w-8 shadow-xl h-8 hover:w-10 hover:h-10 duration-500 flex items-center justify-center rounded-full bg-primary text-white -left-9 absolute"
-                onClick={() => swiperRef.current.slidePrev()}
-              >
-                <FaAngleLeft className="text-xl" />
-              </button>
-              <button
+              <Button
                 className={
-                  "z-10 w-8 shadow-xl h-8 hover:w-10 hover:h-10 duration-500 flex items-center justify-center rounded-full bg-primary text-white -right-9 absolute"
+                  "z-10 w-8 shadow-xl h-8 flex items-center justify-center rounded-full relative -left-9"
+                }
+                onClick={() => swiperRef.current.slidePrev()}
+                children={<FaAngleLeft className="text-xl" />}
+              />
+
+              <Button
+                className={
+                  "z-10 w-8 shadow-xl h-8 flex items-center justify-center rounded-full relative -right-9"
                 }
                 onClick={() => swiperRef.current.slideNext()}
-              >
-                <FaAngleRight className="text-xl" />
-              </button>
+                children={<FaAngleRight className="text-xl" />}
+              />
             </div>
           </div>
         </div>

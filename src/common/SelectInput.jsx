@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import cn from "../utils/cn";
 
 const SelectInput = forwardRef(
-  ({ className, label = "", children, ...rest }, ref) => {
+  ({ className, label = "", children = [], ...rest }, ref) => {
     return (
       <div className="flex flex-col gap-1">
         {label && (
@@ -19,7 +19,12 @@ const SelectInput = forwardRef(
           {...rest}
           ref={ref}
         >
-          {children}
+          <option value="" disabled selected>
+            Select
+          </option>
+          {children.map((child) => (
+            <option value={child}>{child}</option>
+          ))}
         </select>
       </div>
     );
