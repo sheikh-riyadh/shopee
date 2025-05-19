@@ -3,6 +3,7 @@ import { FaAngleLeft, FaAngleRight, FaList } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Button from "../../../common/Button";
 import SelectInput from "../../../common/SelectInput";
+import { Link } from "react-router";
 
 const CategoriesMall = () => {
   const categories = [...Array(40).keys()]; // Replace with real category data
@@ -103,13 +104,13 @@ const CategoriesMall = () => {
           <div className="xl:grid grid-cols-2 hidden">
             <div className="flex items-center gap-5">
               <span>Sort By</span>
-              <span className="bg-primary text-white font-semibold px-3 py-1 rounded-sm">
+              <span className="bg-primary text-white font-semibold px-3 py-1 rounded-sm cursor-pointer">
                 Popular
               </span>
-              <span className="bg-primary text-white font-semibold px-3 py-1 rounded-sm">
+              <span className="bg-primary text-white font-semibold px-3 py-1 rounded-sm cursor-pointer">
                 Latest
               </span>
-              <span className="bg-primary text-white font-semibold px-3 py-1 rounded-sm">
+              <span className="bg-primary text-white font-semibold px-3 py-1 rounded-sm cursor-pointer">
                 Top Sales
               </span>
               <SelectInput
@@ -118,10 +119,10 @@ const CategoriesMall = () => {
               />
             </div>
             <div className="flex items-center justify-end gap-0.5">
-              <span className="bg-white p-2 rounded-sm">
+              <span className="bg-white p-2 rounded-sm cursor-pointer">
                 <FaAngleLeft />
               </span>
-              <span className="bg-white p-2 rounded-sm">
+              <span className="bg-white p-2 rounded-sm cursor-pointer">
                 <FaAngleRight />
               </span>
             </div>
@@ -129,27 +130,29 @@ const CategoriesMall = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-3">
             {[...Array(10).keys()].map((product) => (
-              <div
-                key={product}
-                className="bg-white group border border-slate-200 rounded-sm overflow-hidden w-full"
-              >
-                <img
-                className="w-full"
-                  src="https://down-my.img.susercontent.com/file/my-11134211-7rask-m8wzztgtgs8w06_tn.webp"
-                  alt="product"
-                />
-                <div>
-                  <div className="p-2 flex flex-col gap-3">
-                    <h2 className="text-sm">{`DESSINI ITALY Granite Aluminium Non Stick Casserole...`}</h2>
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-primary font-semibold ">
-                        Price: 250TK
-                      </span>
-                      <span className="text-xs">Sold: 2.5k</span>
+              <Link to={`/product/${product}`}>
+                <div
+                  key={product}
+                  className="bg-white group border border-slate-200 rounded-sm overflow-hidden w-full"
+                >
+                  <img
+                    className="w-full"
+                    src="https://down-my.img.susercontent.com/file/my-11134211-7rask-m8wzztgtgs8w06_tn.webp"
+                    alt="product"
+                  />
+                  <div>
+                    <div className="p-2 flex flex-col gap-3">
+                      <h2 className="text-sm">{`DESSINI ITALY Granite Aluminium Non Stick Casserole...`}</h2>
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-primary font-semibold ">
+                          Price: 250TK
+                        </span>
+                        <span className="text-xs">Sold: 2.5k</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
