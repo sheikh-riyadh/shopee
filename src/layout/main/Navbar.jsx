@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaSearch, FaShopify, FaShoppingCart } from "react-icons/fa";
 import GlobalSearch from "../../components/main/GlobalSearch/GlobalSearch";
+import { Link } from "react-router";
 
 const Navbar = () => {
   const [inputValue, setInputValue] = useState("");
@@ -43,10 +44,10 @@ const Navbar = () => {
     <header className="bg-primary py-5">
       <nav className="container">
         <div className="flex items-center gap-10">
-          <div className="flex items-center gap-4 text-3xl text-white">
+          <Link to="/" className="flex items-center gap-4 text-3xl text-white">
             <FaShopify />
             <strong>Shopee</strong>
-          </div>
+          </Link>
           <div className="flex items-center justify-between bg-white w-full p-1.5 rounded-sm relative">
             <input
               onChange={(e) => handleChange(e)}
