@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { FaClipboard } from "react-icons/fa";
-import PropTypes from "prop-types";
 import cn from "../utils/cn";
 const Table = ({ columns, tableData, className }) => {
   const [data, setData] = useState([]);
@@ -74,12 +73,6 @@ const Table = ({ columns, tableData, className }) => {
       )}
     </div>
   );
-};
-
-Table.propTypes = {
-  tableData: PropTypes.array,
-  columns: PropTypes.array,
-  className: PropTypes.string,
 };
 
 export default Table;

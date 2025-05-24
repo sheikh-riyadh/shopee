@@ -19,9 +19,9 @@ export const layout = {
       link: "/dashboard",
     },
     {
-      name: "Order",
+      name: "Add Product",
       icon: <FaShoppingBag />,
-      link: "order",
+      link: "add-product",
     },
     {
       name: "Edit Profile",

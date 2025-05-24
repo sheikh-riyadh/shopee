@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+
 import { CgSpinner } from "react-icons/cg";
 import cn from "../utils/cn";
 
@@ -13,7 +13,7 @@ const SubmitButton = ({
     <button
       disabled={isLoading}
       className={cn(
-        `w-full bg-[#047857] p-2 text-white rounded-sm font-medium text-sm uppercase hover:opacity-85 duration-300`,
+        `w-full bg-primary p-2 text-white rounded-sm font-medium text-sm uppercase hover:opacity-85 duration-300`,
         className
       )}
       {...rest}
@@ -33,12 +33,4 @@ const SubmitButton = ({
     </button>
   );
 };
-
-SubmitButton.propTypes = {
-  children: PropTypes.string,
-  className: PropTypes.string,
-  isLoading: PropTypes.bool,
-  loadingText: PropTypes.string,
-};
-
 export default SubmitButton;

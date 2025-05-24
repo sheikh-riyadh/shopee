@@ -5,6 +5,7 @@ import Categories from "../../pages/main/Categories/Categories";
 import SingleProduct from "../../pages/main/SingleProduct/SingleProduct";
 import AdminLayout from "../../layout/admin/AdminLayout";
 import AdminHome from "../../pages/admin/Home/AdminHome";
+import AddProduct from "../../pages/admin/AddProduct/AddProduct";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
             path: "/dashboard",
             element: <AdminHome />,
           },
+          {
+            path:"add-product",
+            element:<AddProduct/>
+          }
         ],
       },
     ],

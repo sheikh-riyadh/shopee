@@ -1,5 +1,4 @@
 import { forwardRef } from "react";
-import PropTypes from "prop-types";
 import cn from "../utils/cn";
 
 const TextArea = forwardRef(({ className, label = "", ...rest }, ref) => {
@@ -21,11 +20,4 @@ const TextArea = forwardRef(({ className, label = "", ...rest }, ref) => {
     </div>
   );
 });
-TextArea.displayName = "TextArea";
-
-TextArea.propTypes = {
-  className: PropTypes.string,
-  label: PropTypes.string,
-};
-
 export default TextArea;

@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import cn from "../utils/cn";
 
 const Pagination = ({ pages, setCurrentPage, currentPage, className }) => {
@@ -21,12 +20,5 @@ const Pagination = ({ pages, setCurrentPage, currentPage, className }) => {
       ))}
     </div>
   );
-};
-
-Pagination.propTypes = {
-  pages: PropTypes.number,
-  setCurrentPage: PropTypes.func,
-  currentPage: PropTypes.number,
-  className: PropTypes.string,
 };
 export default Pagination;

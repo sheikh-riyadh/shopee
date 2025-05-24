@@ -1,5 +1,4 @@
 import { forwardRef } from "react";
-import PropTypes from "prop-types";
 import cn from "../utils/cn";
 
 const SelectInput = forwardRef(
@@ -30,12 +29,5 @@ const SelectInput = forwardRef(
     );
   }
 );
-SelectInput.displayName = "SelectInput";
-
-SelectInput.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node,
-  label: PropTypes.string,
-};
 
 export default SelectInput;

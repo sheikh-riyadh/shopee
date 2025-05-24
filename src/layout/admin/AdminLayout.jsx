@@ -8,7 +8,7 @@ const AdminLayout = () => {
         <div className="col-span-2 gap-5">
           <AdminLeft />
         </div>
-        <div className="col-span-10 bg-white border rounded-sm border-slate-200 h-[calc(100vh-125px)] p-5">
+        <div className="col-span-10 bg-white border rounded-sm border-slate-200 h-[calc(100vh-125px)] overflow-x-auto p-5">
           <Outlet />
         </div>
       </div>

@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import cn from "../utils/cn";
 
 
@@ -14,11 +13,6 @@ const Button = ({ children, className, ...rest }) => {
       {children}
     </button>
   );
-};
-
-Button.propTypes = {
-  children: PropTypes.any,
-  className: PropTypes.string,
 };
 
 export default Button;

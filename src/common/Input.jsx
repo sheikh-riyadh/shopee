@@ -1,5 +1,4 @@
 import { forwardRef, useState } from "react";
-import PropTypes from "prop-types";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import cn from "../utils/cn";
 
@@ -18,7 +17,7 @@ const Input = forwardRef(
     return (
       <div className="flex flex-col gap-1">
         {label && (
-          <label className="flex items-center gap-1 py-2 font-medium text-sm text-white">
+          <label className="flex items-center gap-1 py-2 font-medium text-sm text-black">
             {label} {rest?.required && <span className={"text-danger"}>*</span>}
           </label>
         )}
@@ -51,12 +50,4 @@ const Input = forwardRef(
     );
   }
 );
-Input.displayName = "Input";
-
-Input.propTypes = {
-  className: PropTypes.string,
-  type: PropTypes.string,
-  label: PropTypes.string,
-};
-
 export default Input;
