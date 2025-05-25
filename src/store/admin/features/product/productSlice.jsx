@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   value: {
-    keyFeatures: [],
     productImages: [...Array(4).fill(null)],
     colors: [],
     size: [],
@@ -14,11 +13,7 @@ const productSlice = createSlice({
   initialState,
   reducers: {
     handleAdd: (state, { payload }) => {
-      if (payload.name == "keyFeatures") {
-        if (!state.value.keyFeatures.includes(payload.data)) {
-          state.value.keyFeatures.push(payload.data);
-        }
-      } else if (payload.name == "productImages") {
+      if (payload.name == "productImages") {
         state.value.productImages[payload.index] = payload.data;
       } else if (payload.name == "colors") {
         if (!state.value.colors.includes(payload.data)) {
@@ -31,11 +26,18 @@ const productSlice = createSlice({
       }
     },
 
-    handleRemoveKeyFeatures: (state, { payload }) => {
-      const restKeyFeatures = state.value.keyFeatures.filter(
-        (feature) => feature != payload
-      );
-      state.value.keyFeatures = [...restKeyFeatures];
+    handleRemove: (state, { payload }) => {
+      if (payload.name == "colors") {
+        const rest_data = state.value.colors.filter(
+          (color) => color != payload.data
+        );
+        state.value.colors = [...rest_data];
+      } else if (payload.name == "size") {
+        const rest_data = state.value.size.filter(
+          (size) => size != payload.data
+        );
+        state.value.size = [...rest_data];
+      }
     },
     handleProductImages: (state, { payload }) => {
       state.value.productImages[payload.index] = payload.data;
@@ -62,7 +64,7 @@ const productSlice = createSlice({
 
 export const {
   handleAdd,
-  handleRemoveKeyFeatures,
+  handleRemove,
   handleProductImages,
   handleDeleteProductImage,
   handleSetProductImages,

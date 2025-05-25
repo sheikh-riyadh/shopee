@@ -31,7 +31,7 @@ const AddProduct = () => {
       <form
         onSubmit={handleSubmit(handleOnSubmit)}
         onKeyDown={handleKeyDown}
-        className="overflow-hidden flex flex-col gap-5"
+        className="overflow-hidden"
       >
         <BasicInfo register={register} setValue={setValue} />
         <DescriptionInfo content={content} setContent={setContent} />

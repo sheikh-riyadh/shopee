@@ -1,14 +1,18 @@
-import { FaTimes } from "react-icons/fa";
+import { FaCircle, FaTimes } from "react-icons/fa";
 import Input from "../../../common/Input";
 import ImageUpload from "../../../common/ImageUpload";
 import { useGetProduct } from "../../../hooks/main/useGetProduct";
 import {
   handleAdd,
-  handleRemoveKeyFeatures,
+  handleRemove,
 } from "../../../store/admin/features/product/productSlice";
 import { useDispatch } from "react-redux";
+import { useState } from "react";
 
 const BasicInfo = ({ register, setValue }) => {
+  const [isColorsEnable, setIsColorsEnable] = useState(false);
+  const [isSizeEnable, setIsSizeEnable] = useState(false);
+
   const { keyFeatures, colors, size } = useGetProduct();
   const dispatch = useDispatch();
 
@@ -29,8 +33,8 @@ const BasicInfo = ({ register, setValue }) => {
     }
   };
 
-  const handleDeleteKeyFeatures = (deleteFeatureItem) => {
-    dispatch(handleRemoveKeyFeatures(deleteFeatureItem));
+  const handleDeleteFeature = (data) => {
+    dispatch(handleRemove(data));
   };
 
   return (
@@ -41,44 +45,92 @@ const BasicInfo = ({ register, setValue }) => {
       <ImageUpload from="product" />
       <div>
         <Input
-          {...register("videoURL")}
-          label={"Video URL"}
-          placeholder="URL"
-        />
-      </div>
-      <div>
-        <Input
           {...register("title")}
           label={"Title"}
           required
           placeholder="Product title"
         />
       </div>
-      <span className="py-2 block font-medium text-sm text-black">
-        Key Features <span className="text-danger">*</span>
-      </span>
-      <div>
-        <Input
-          {...register("keyFeatures")}
-          onKeyDown={handleProductKeyFeature}
-          placeholder="Enter"
-        />
 
-        <div className="flex items-center gap-2 flex-wrap mt-3">
-          {keyFeatures?.map((feature) => (
-            <div
-              key={feature}
-              className="px-2 flex items-center gap-2 bg-primary text-white rounded-full"
-            >
-              <span className="text-sm font-bold">{feature}</span>
-              <span>
-                <FaTimes
-                  onClick={() => handleDeleteKeyFeatures(feature)}
-                  className="text-sm text-danger cursor-pointer bg-gray-200 rounded-full p-0.5 hover:text-white hover:bg-danger duration-300"
-                />
-              </span>
-            </div>
-          ))}
+      <div className="flex gap-5 items-center">
+        {["colors", "size"].map((value) => (
+          <span
+            onClick={() =>
+              value == "colors"
+                ? setIsColorsEnable((prev) => !prev)
+                : setIsSizeEnable((prev) => !prev)
+            }
+            className="py-2 font-medium text-sm text-black flex items-center gap-3 cursor-pointer"
+          >
+            {value}:
+            <FaCircle
+              className={`${
+                value == "colors" && isColorsEnable
+                  ? "text-blue-600"
+                  : value == "size" && isSizeEnable
+                  ? "text-blue-600"
+                  : undefined
+              }`}
+            />
+          </span>
+        ))}
+      </div>
+
+      <div className={`${isColorsEnable ? "block" : "hidden"}`}>
+        <div>
+          <Input
+            {...register("colors")}
+            onKeyDown={handleProductKeyFeature}
+            placeholder="Color then enter *"
+          />
+
+          <div className="flex items-center gap-2 flex-wrap mt-3">
+            {colors?.map((color) => (
+              <div
+                key={color}
+                className="px-2 flex items-center gap-2 bg-primary text-white rounded-full"
+              >
+                <span className="text-sm font-bold">{color}</span>
+                <span>
+                  <FaTimes
+                    onClick={() =>
+                      handleDeleteFeature({ name: "colors", data: color })
+                    }
+                    className="text-sm text-danger cursor-pointer bg-gray-200 rounded-full p-0.5 hover:text-white hover:bg-danger duration-300"
+                  />
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className={`${isSizeEnable ? "block" : "hidden"}`}>
+        <div>
+          <Input
+            {...register("size")}
+            onKeyDown={handleProductKeyFeature}
+            placeholder="Size then enter *"
+          />
+
+          <div className="flex items-center gap-2 flex-wrap mt-3">
+            {size?.map((size) => (
+              <div
+                key={size}
+                className="px-2 flex items-center gap-2 bg-primary text-white rounded-full"
+              >
+                <span className="text-sm font-bold">{size}</span>
+                <span>
+                  <FaTimes
+                    onClick={() =>
+                      handleDeleteFeature({ name: "size", data: size })
+                    }
+                    className="text-sm text-danger cursor-pointer bg-gray-200 rounded-full p-0.5 hover:text-white hover:bg-danger duration-300"
+                  />
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

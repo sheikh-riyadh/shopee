@@ -29,8 +29,8 @@ const AdminLeft = () => {
                 <Link
                   className={`flex items-center gap-3 py-2 duration-200 text-sm text-black ${
                     pathname == `/dashboard/${link}` || pathname === link
-                      ? ""
-                      : ""
+                      ? "text-primary"
+                      : undefined
                   }`}
                   to={`${link}`}
                   title={name}
