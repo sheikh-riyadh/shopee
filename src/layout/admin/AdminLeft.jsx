@@ -4,9 +4,9 @@ import { layout } from "../../data/main/layout";
 const AdminLeft = () => {
   const { pathname } = useLocation();
   return (
-    <div className="flex flex-col gap-2">
-      <div>
-        <div className="flex flex-col gap-1">
+    <aside className="flex flex-col gap-2 fixed h-[calc(100vh-125px)] overflow-y-auto bar-hidden">
+      <div className="">
+        <div className="flex flex-col gap-1 sticky top-0">
           <figure>
             <img
               className="rounded-full h-10"
@@ -21,30 +21,28 @@ const AdminLeft = () => {
         </div>
       </div>
       <hr className="text-slate-200" />
-      <div>
-        <aside className="relative z-0">
-          <div className={`overflow-y-auto bar-hidden duration-300`}>
-            <div className="flex flex-col gap-2 h-full">
-              {layout.left_side.map(({ name, icon, link }) => (
-                <Link
-                  className={`flex items-center gap-3 py-2 duration-200 text-sm text-black ${
-                    pathname == `/dashboard/${link}` || pathname === link
-                      ? "text-primary"
-                      : undefined
-                  }`}
-                  to={`${link}`}
-                  title={name}
-                  key={name}
-                >
-                  <span className="text-xl">{icon}</span>
-                  <span>{name}</span>
-                </Link>
-              ))}
-            </div>
+      <div className="relative z-0">
+        <div className={`overflow-y-auto bar-hidden duration-300`}>
+          <div className="flex flex-col gap-2 h-full">
+            {layout.admin_left_side?.map(({ name, icon, link }) => (
+              <Link
+                className={`flex items-center gap-3 py-2 duration-200 text-sm text-black ${
+                  pathname == `/dashboard/${link}` || pathname === link
+                    ? "text-primary"
+                    : undefined
+                }`}
+                to={`${link}`}
+                title={name}
+                key={name}
+              >
+                <span className="text-xl">{icon}</span>
+                <span>{name}</span>
+              </Link>
+            ))}
           </div>
-        </aside>
+        </div>
       </div>
-    </div>
+    </aside>
   );
 };
 

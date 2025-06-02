@@ -18,12 +18,12 @@ const Table = ({ columns, tableData, className }) => {
     <div className="overflow-x-auto">
       {data?.length ? (
         <table
-          className={cn(`min-w-full bg-widget rounded-lg shadow-md`, className)}
+          className={cn(`min-w-full`, className)}
         >
-          <thead className="bg-widget">
+          <thead className="bg-slate-100">
             <tr>
               {columns?.map((column, index) => (
-                <th key={index} className="p-4 text-left text-[#047857]">
+                <th key={index} className="p-4 text-left text-black">
                   <div className="flex items-center justify-between">
                     <span className="whitespace-nowrap">{column.name}</span>{" "}
                   </div>
@@ -33,7 +33,7 @@ const Table = ({ columns, tableData, className }) => {
           </thead>
           <tbody
             className={cn(
-              `text-white text-sm font-light bg-widget`,
+              `text-sm font-light`,
               className
             )}
           >
@@ -66,8 +66,8 @@ const Table = ({ columns, tableData, className }) => {
           </tbody>
         </table>
       ) : (
-        <div className="flex gap-5 flex-col items-center justify-center w-full h-80 bg-widget">
-          <FaClipboard className="text-8xl text-slate"  />
+        <div className="flex gap-5 flex-col items-center justify-center w-full h-80">
+          <FaClipboard className="text-8xl text-slate-300"  />
           <span className="font-medium text-xl text-accent capitalize">No data found</span>
         </div>
       )}

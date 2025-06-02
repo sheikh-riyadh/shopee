@@ -1,10 +1,10 @@
 import { useState } from "react";
 import Button from "../../../common/Button";
-import BannerForm from "../../../components/admin/AddBanner/BannerForm";
 import Modal from "../../../common/Modal";
-import BannerTable from "../../../components/admin/AddBanner/BannerTable";
+import AddCategoryTable from "../../../components/admin/AddCategory/AddCategoryTable";
+import AddCategoryForm from "../../../components/admin/AddCategory/AddCategoryForm";
 
-const AddBanner = () => {
+const AddCategory = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div>
@@ -21,21 +21,21 @@ const AddBanner = () => {
           </div>
         </div>
         <div>
-          <BannerTable />
+          <AddCategoryTable />
         </div>
       </div>
       {isModalOpen && (
         <Modal
-          title={"Add Banner"}
-          className="w-[350px] xl:w-[500px]"
+          title={"Add Category"}
+          className="w-[350px] xl:w-[300px]"
           onClose={setIsModalOpen}
           isOpen={isModalOpen}
         >
-          <BannerForm setIsModalOpen={setIsModalOpen} />
+          <AddCategoryForm />
         </Modal>
       )}
     </div>
   );
 };
 
-export default AddBanner;
+export default AddCategory;

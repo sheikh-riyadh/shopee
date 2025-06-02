@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 
 const MainLayout = () => {
   return (
-    <div>
+    <div className="min-h-screen">
       <div className="sticky top-0 z-50">
         <Navbar/>
       </div>

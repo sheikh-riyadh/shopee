@@ -1,42 +1,50 @@
 import {
-  FaAddressCard,
+  FaBoxOpen,
   FaExclamationCircle,
   FaHeart,
+  FaListAlt,
   FaReply,
-  FaShoppingBag,
   FaShoppingBasket,
+  FaShoppingCart,
   FaStar,
   FaThumbsUp,
   FaUserCircle,
 } from "react-icons/fa";
 import { MdWindow } from "react-icons/md";
+import { PiSlideshowFill } from "react-icons/pi";
 
 export const layout = {
-  left_side: [
+  admin_left_side: [
     {
       name: "Dashboard",
       icon: <MdWindow />,
       link: "/dashboard",
     },
     {
+      name: "Order",
+      icon: <FaShoppingCart />,
+      link: "manage-order",
+    },
+    {
       name: "Add Product",
-      icon: <FaShoppingBag />,
+      icon: <FaBoxOpen />,
       link: "add-product",
+    },
+    {
+      name: "Add Banner",
+      icon: <PiSlideshowFill />,
+      link: "add-banner",
     },
     {
       name: "Edit Profile",
       icon: <FaUserCircle />,
       link: "edit-profile",
     },
+
     {
-      name: "Address",
-      icon: <FaAddressCard />,
-      link: "address",
-    },
-    {
-      name: "Wishlist",
-      icon: <FaHeart />,
-      link: "wishlist",
+      name: "Add Category",
+      icon: <FaListAlt />,
+      link: "add-category",
     },
     {
       name: "My Cart",

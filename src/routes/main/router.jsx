@@ -6,6 +6,11 @@ import SingleProduct from "../../pages/main/SingleProduct/SingleProduct";
 import AdminLayout from "../../layout/admin/AdminLayout";
 import AdminHome from "../../pages/admin/Home/AdminHome";
 import AddProduct from "../../pages/admin/AddProduct/AddProduct";
+import AddBanner from "../../pages/admin/AddBanner/AddBanner";
+import EditProfile from "../../pages/admin/EditProfile/EditProfile";
+import SignIn from "../../pages/main/Login/SignIn";
+import ManageOrder from "../../pages/admin/Order/ManageOrder";
+import AddCategory from "../../pages/admin/AddCategory/AddCategory";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,12 +37,32 @@ const router = createBrowserRouter([
             element: <AdminHome />,
           },
           {
+            path: "manage-order",
+            element: <ManageOrder />,
+          },
+          {
             path:"add-product",
             element:<AddProduct/>
+          },
+          {
+            path:"add-banner",
+            element:<AddBanner/>
+          },
+          {
+            path:"edit-profile",
+            element:<EditProfile/>
+          },
+          {
+            path:"add-category",
+            element:<AddCategory/>
           }
         ],
       },
     ],
+  },
+  {
+    path: "sign-in",
+    element: <SignIn />,
   },
 ]);
 

@@ -6,7 +6,7 @@ const SelectInput = forwardRef(
     return (
       <div className="flex flex-col gap-1">
         {label && (
-          <label className="flex items-center gap-1 py-2 font-medium text-sm text-white">
+          <label className="flex items-center gap-1 py-2 font-medium text-sm">
             {label} {rest?.required && <span className={"text-danger"}>*</span>}
           </label>
         )}
